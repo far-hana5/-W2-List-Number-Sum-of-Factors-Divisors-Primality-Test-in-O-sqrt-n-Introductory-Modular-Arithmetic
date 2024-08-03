@@ -20,18 +20,32 @@ Explanation
 9 has three divisors 1, 3 and 9 none of which is divisible by 2.
 8 has four divisors 1,2,4 and 8, out of which three are divisible by 2.
     */
-#include<bits/stdc++.h>
+
+#include<iostream>
+#include<set>
 using namespace std;
+int main ()
+{
+    int t;
+    cin>>t;
+    while(t--){
+        set<int>m;
+      int n;int count1=0; cin >> n;
+       for(int i=1; i*i<=n; i++)
+    {
+        if(i*i==n) m.insert(i);
+        else if(n%i==0) {m.insert(i);m.insert(n/i);}
+    }
 
-int main(){
-int t;cin>>t;
-while(t--){
-    int n;cin>>n;int count=0;
+    for(auto ele:m){
+      if(ele%2==0){
+        count1++;
+      }
+    }
+    cout<<count1<<endl;
 
-        while(n%2==0){
-            count++;n/=2;
-        }
+    }
 
-    cout<<count<<endl;
+    return 0;
 }
-}
+
